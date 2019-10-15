@@ -39,6 +39,11 @@ public class SimpleService extends Service {
         Log.d("g53mdp", "service onCreate");
         super.onCreate();
 
+        new Thread(...) {
+
+
+        }
+
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         // Create the NotificationChannel, but only on API 26+ because
         // the NotificationChannel class is new and not in the support library
@@ -70,6 +75,7 @@ public class SimpleService extends Service {
 
         //notificationManager.notify(NOTIFICATION_ID, mBuilder.build());
         startForeground(NOTIFICATION_ID, mBuilder.build());
+
     }
 
     @Override

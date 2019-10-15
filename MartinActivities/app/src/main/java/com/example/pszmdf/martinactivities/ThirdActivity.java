@@ -35,7 +35,7 @@ public class ThirdActivity extends AppCompatActivity {
         Intent result = new Intent();
         result.putExtras(bundle);
         setResult(Activity.RESULT_OK, result);
-        finish();
+    //    finish();
     }
 
     @Override

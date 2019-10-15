@@ -75,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
 
                 final Bitmap result = doWork(10000);
+                imageView.setImageBitmap(result);
 
                 mainHandler.post(new Runnable() {
 
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+                //MainActivity.this.startActivity(new Intent(MainActivity.this, MainActivity.class));
             }
         }).start();
     }

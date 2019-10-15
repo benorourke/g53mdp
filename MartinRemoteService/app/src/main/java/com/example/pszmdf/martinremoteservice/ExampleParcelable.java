@@ -9,6 +9,8 @@ public class ExampleParcelable implements Parcelable {
     public int y;
     public String text;
 
+    int foo;
+
     public ExampleParcelable() {
 
     }

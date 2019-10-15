@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //this.startService(new Intent(this, CounterService.class));
+        this.startService(new Intent(this, CounterService.class));
         this.bindService(new Intent(this, CounterService.class), serviceConnection, Context.BIND_AUTO_CREATE);
     }
 

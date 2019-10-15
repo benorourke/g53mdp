@@ -13,12 +13,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -76,15 +79,17 @@ public class MainActivity extends AppCompatActivity {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
                 Intent upIntent = NavUtils.getParentActivityIntent(this);
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
-                    // This activity is NOT part of this app's task, so create a new task
-                    // when navigating up, with a synthesized back stack.
-                    TaskStackBuilder.create(this)
-                            // Add all of this activity's parents to the back stack
-                            .addNextIntentWithParentStack(upIntent)
-                            // Navigate up to the closest parent
-                            .startActivities();
-                } else {
+                    if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
+                        Log.d("g53mdp", "create back stack");
+                        // This activity is NOT part of this app's task, so create a new task
+                        // when navigating up, with a synthesized back stack.
+                        TaskStackBuilder.create(this)
+                                // Add all of this activity's parents to the back stack
+                                .addNextIntentWithParentStack(upIntent)
+                                // Navigate up to the closest parent
+                                .startActivities();
+                    } else {
+                        Log.d("g53mdp", "navigate up");
                     // This activity is part of this app's task, so simply
                     // navigate up to the logical parent activity.
                     NavUtils.navigateUpTo(this, upIntent);
@@ -125,20 +130,11 @@ public class MainActivity extends AppCompatActivity {
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-            switch(getArguments().getInt(ARG_SECTION_NUMBER)){
-                case 1:
-                    rootView.setBackgroundColor(Color.rgb(255,100,100));
-                    break;
-                case 2:
-                    rootView.setBackgroundColor(Color.rgb(100,255,255));
-                    break;
-                default:
-                    rootView.setBackgroundColor(Color.rgb(100,100,255));
-                    break;
-            }
 
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            ImageView prodImg=(ImageView)rootView.findViewById(R.id.imageView);
+            int resID = rootView.getResources().getIdentifier("@drawable/cat"+getArguments().getInt(ARG_SECTION_NUMBER) , "drawable", getContext().getPackageName());
+            prodImg.setImageResource(resID);
+
             return rootView;
         }
     }

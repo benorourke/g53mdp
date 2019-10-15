@@ -22,9 +22,8 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        /*
         LinearLayout l = findViewById(R.id.layout);
-        l.setBackgroundColor(backgroundColour);*/
+        l.setBackgroundColor(backgroundColour);
     }
 
     // Activity lifecycle
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public void onClickActivity2(View v) {
 
         Intent intent = new Intent(MainActivity.this, SecondActivity.class);
-         startActivity(intent);
+        startActivity(intent);
     }
 
     public void onClickPhoneCall(View v) {
@@ -141,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
 
     // maintaining Activity state
 
-    /*
     Random rand = new Random();
     int backgroundColour = Color.rgb(rand.nextInt(256), rand.nextInt(256), rand.nextInt(256));
 
@@ -160,5 +158,5 @@ public class MainActivity extends AppCompatActivity {
 
         LinearLayout l = findViewById(R.id.layout);
         l.setBackgroundColor(backgroundColour);
-    } */
+    }
 }
