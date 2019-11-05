@@ -64,9 +64,15 @@ public class DatabaseActivity extends Activity {
 
         Cursor cursor = dbAdapter.db.query("myList", new String[] { "_id", "name", "colour" }, null, null, null, null, null);
 
+        /*
         String[] columns = new String[] {
                 DatabaseAdapter.KEY_NAME,
                 DatabaseAdapter.KEY_COLOUR
+        };*/
+
+        String[] columns = new String[] {
+               "name",
+               "colour"
         };
 
         int[] to = new int[] {

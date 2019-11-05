@@ -72,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(MainActivity.this, DatabaseActivity.class));
     }
 
+    public void onClickLaunchRecyclerActivity(View v) {
+        startActivity(new Intent(MainActivity.this, RecyclerActivity.class));
+    }
+
     public void queryDBTextView() {
 
         StringBuilder sb = new StringBuilder();
